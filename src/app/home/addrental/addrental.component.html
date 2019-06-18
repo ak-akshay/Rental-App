@@ -1,0 +1,41 @@
+<div class="container">
+  <br><br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+        <h2>Add Your Rental Property</h2>
+        <br>
+        <p *ngIf="isPropertyAdded" style="color:green;">Your property is added successfully.</p>
+          <form (ngSubmit)="addproperty(addRentalForm)" #addRentalForm="ngForm">
+              <div class="form-group">
+                <label for="title">Title of Property</label>
+                <input name="title" ngModel type="Text" class="form-control" placeholder="Enter title" required>
+                <small id="emailHelp" class="form-text text-muted">Title should be in less than 100 letters.</small>
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input name="price" ngModel type="Text" class="form-control" placeholder="Enter title" required>
+                <small id="emailHelp" class="form-text text-muted">Price should be given in Rupees</small>
+              </div>
+              <div class="form-group">
+                  <label for="locality">Locality</label>
+                  <input name="locality" ngModel type="Text" class="form-control" placeholder="Enter locality" required>
+              </div>
+              <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea rows="6" name="description" ngModel class="form-control" placeholder="Enter description" style="resize: none;"></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="ownerName">Owner's Name</label>
+                  <input name="ownerName" ngModel type="Text" class="form-control" placeholder="Owner's Name" required>
+              </div>
+              <div class="form-group">
+                  <label for="ownerContact">Owner's Contact number</label>
+                  <input name="ownerContact" ngModel type="Text" class="form-control" placeholder="Owner's Contact" required>
+              </div>        
+            <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+</div>

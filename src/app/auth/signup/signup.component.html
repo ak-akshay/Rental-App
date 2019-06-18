@@ -1,0 +1,47 @@
+<div class="body">
+  <br>
+  <div class="row"></div>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <div class="card" style="width: 80vw;background:rgba(0, 0, 0, 0.7)">
+        <img src="assets/images/signup.jpg" class="card-img-top" style="height:350px;">
+        <div class="card-body">
+          <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm" class="card-text">
+              <div class="title">Sign Up</div>
+              <p style="color: green;">You are registered successfully.</p>
+              <p style="color: red;">Sign up failed. please try again.</p>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="width: 150px;">Email Address</span>
+              </div>
+              <input name="email" ngModel type="email" class="form-control" required>
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="width: 150px;">Password</span>
+              </div>
+              <input name="password" ngModel type="password" class="form-control" required>
+            </div>
+            <br>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="width: 150px;">Date of birth</span>
+              </div>
+              <input name="dob" ngModel type="date" class="form-control" required>
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="width: 150px;">Mobile</span>
+              </div>
+              <input name="mobile" ngModel type="text" class="form-control" required>
+            </div>
+            <br>
+            <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success">Sign Up</button>
+          </form>
+          <br>
+          <div class="alert alert-secondary" role="alert" style="font-size:0.8em;">
+            Existing user? <a routerLink="/auth/signin" class="alert-link">Sign in here</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2"></div>
+  </div><br>
+</div>

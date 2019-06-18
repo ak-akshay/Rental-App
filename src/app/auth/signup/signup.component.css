@@ -1,0 +1,10 @@
+.body{
+    background: linear-gradient(to right, #0033cc 0%, #cc00cc 100%);
+    width: 100%;
+    overflow-x: hidden;
+}
+.title{
+    padding: 20px 40px;
+    color: white;
+    font-size: 3em;
+}
