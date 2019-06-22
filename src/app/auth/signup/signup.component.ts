@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { __await } from 'tslib';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,10 @@ export class SignupComponent implements OnInit {
   signup(signupForm:NgForm){
     console.log(signupForm.value)
     //code to sign up using firebase auth
-    this.auth.signUp(signupForm.value.email,signupForm.value.password)
-    signupForm.reset()
+    this.auth.signUp(signupForm)
+  }
+  
+  close(){
+    document.getElementById('alert').style.display="none"
   }
 }

@@ -8,12 +8,17 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ErrorComponent } from './error/error.component';
 import { AuthguardService } from './services/authguard.service';
+import { EnquiriesComponent } from './enquiries/enquiries.component';
+import { IndexComponent } from './home/index/index.component';
 
 const routes: Routes = [
-  {path: 'allproperties' , component:RentalsComponent, canActivate:[AuthguardService]},
-  {path: 'addproperty' , component:AddrentalComponent, canActivate:[AuthguardService]},
-  {path: 'home' , component:HomeComponent , canActivate:[AuthguardService]},
   {path: '' , component:HomeComponent , canActivate:[AuthguardService]},
+  {path:'home' , component:HomeComponent , canActivate:[AuthguardService] , children:[
+    {path:'' , component:IndexComponent},
+    {path:'allproperties' , component:RentalsComponent},
+    {path:'addproperty' , component:AddrentalComponent},
+    {path:'enquiries' , component:EnquiriesComponent},
+  ]},
   {path: 'auth' , component:AuthComponent},
   {path: 'auth/signin' , component:SigninComponent},
   {path: 'auth/signup' , component:SignupComponent},

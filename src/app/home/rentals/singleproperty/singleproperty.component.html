@@ -10,6 +10,31 @@
         <h2>Owner's Details</h2>
         <p>Name: {{property.ownerName}}</p>
         <p>Contact: {{property.ownerContact}}</p>
+        <br>
+        <button (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
+
+        <ng-container *ngIf="showForm">
+          <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm" >
+            <div class="form-group">
+              <label >Message</label>
+              <input ngModel name="message" type="text" class="form-control" placeholder="Enter message">
+            </div>
+            <button type="submit">Send</button>
+          </form>
+        </ng-container>
+        <br>
+        <div id="alert" class="alert alert-success alert-dismissible fade show" style="display:none;">
+          Enquiry message sent successfully.
+          <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="erralert" class="alert alert-danger alert-dismissible fade show" style="display:none;">
+          Some error occured. Try again later.
+          <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -17,6 +17,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { SinglepropertyComponent } from './home/rentals/singleproperty/singleproperty.component';
+import { EnquiriesComponent } from './enquiries/enquiries.component';
+import { IndexComponent } from './home/index/index.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SinglepropertyComponent } from './home/rentals/singleproperty/singlepro
     RentalsComponent,
     AddrentalComponent,
     ErrorComponent,
-    SinglepropertyComponent
+    SinglepropertyComponent,
+    EnquiriesComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

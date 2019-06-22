@@ -2,7 +2,7 @@
     background-image: url("src\assets\images\signin_bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 89vh;
+    height: 100vh;
 }
 .container{
     background-color: rgba(0,0,0,0.6); 

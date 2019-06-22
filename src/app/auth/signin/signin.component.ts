@@ -15,9 +15,11 @@ export class SigninComponent implements OnInit {
   }
 
   signin(signinForm:NgForm){
-    console.log(signinForm.value)
     //Code to sign in using firebase auth
     this.auth.logIn(signinForm.value.email,signinForm.value.password)
-    signinForm.reset()
+  }
+
+  close(){
+    document.getElementById('alert').style.display="none"
   }
 }

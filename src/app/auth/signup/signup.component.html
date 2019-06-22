@@ -9,8 +9,12 @@
         <div class="card-body">
           <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm" class="card-text">
               <div class="title">Sign Up</div>
-              <p style="color: green;">You are registered successfully.</p>
-              <p style="color: red;">Sign up failed. please try again.</p>
+              <div id="alert" class="alert alert-danger alert-dismissible fade show" style="display:none;">
+                {{auth.errmsg}} Try again
+                <button type="button" class="close" (click)="close()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text" style="width: 150px;">Email Address</span>
@@ -24,13 +28,20 @@
             <br>
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text" style="width: 150px;">Date of birth</span>
+                <span class="input-group-text" style="width: 150px;">Your Name</span>
               </div>
-              <input name="dob" ngModel type="date" class="form-control" required>
+              <input name="name" ngModel type="text" class="form-control" required>
               <div class="input-group-prepend">
                 <span class="input-group-text" style="width: 150px;">Mobile</span>
               </div>
               <input name="mobile" ngModel type="text" class="form-control" required>
+            </div>
+            <br>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="width: 150px;">Date of birth</span>
+              </div>
+              <input name="dob" ngModel type="date" class="form-control" required>
             </div>
             <br>
             <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success">Sign Up</button>

@@ -1,0 +1,6 @@
+.hvr{
+    transition: 0.1s;
+}
+.hvr:hover{
+    transform: scale(1.2);
+}

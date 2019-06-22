@@ -1,5 +1,5 @@
 <div class="body">
-  <br>
+  <br><br>
 <div class="container">
   <div class="row">
     <div class="title">Sign in</div>
@@ -9,6 +9,12 @@
     <div class="col-lg-1"></div>
     <div class="col-lg-9">
       <form (ngSubmit)="signin(signinForm)" #signinForm="ngForm">
+        <div id="alert" class="alert alert-danger alert-dismissible fade show" style="display: none;">
+          {{auth.errmsg}} Try Again
+          <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="form-group">
           <div class="input-group mb-4">
             <input ngModel name="email" type="email" class="form-control" placeholder="Email address" required>
