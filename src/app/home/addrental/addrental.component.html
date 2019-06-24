@@ -25,6 +25,13 @@
                   <label for="description">Description</label>
                   <textarea rows="6" name="description" ngModel class="form-control" placeholder="Enter description" style="resize: none;"></textarea>
               </div>     
+              <form>
+                <div class="form-group">
+                  <label for="propertyImage">Upload an image of the property</label>
+                  <input (change)="SelectFile($event)" type="file" class="form-control-file">
+                  <p *ngIf="isUploaded">Uploaded Successfully</p>
+                </div>
+              </form>
             <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-primary">Submit</button>
           </form>
       </div>

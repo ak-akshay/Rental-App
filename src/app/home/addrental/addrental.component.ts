@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { RentalService } from 'src/app/services/rental.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-addrental',
@@ -12,7 +13,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AddrentalComponent implements OnInit {
 
   isPropertyAdded:boolean=false
-  constructor(public rentalService:RentalService,public router:Router,public authService:AuthService) { }
+  path
+  isUploaded:boolean=false
+  constructor(public rentalService:RentalService,public router:Router,public authService:AuthService,private storage: AngularFireStorage) { }
 
   ngOnInit() {
   }
@@ -21,10 +24,23 @@ export class AddrentalComponent implements OnInit {
     let ownerEmail = this.authService.userDetails.email
     let ownerName = this.authService.userDetails.name
     let ownerContact = this.authService.userDetails.mobile
-    this.rentalService.addRental({ownerEmail,ownerName,ownerContact,...addrentalform.value}).then(data=>{
+    let image = this.path
+    this.rentalService.addRental({ownerEmail,image,ownerName,ownerContact,...addrentalform.value}).then(data=>{
       console.log(data.id)
       addrentalform.reset()
       this.isPropertyAdded=true
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+  SelectFile(event){
+    let file = event.target.files[0]
+    let date = new Date()
+    let unique = '/rentals/'+ date.toString()
+    let task = this.storage.upload(unique,file).then(data=>{
+      this.path=unique
+      this.isUploaded=true
+      console.log(data)
     }).catch(err=>{
       console.log(err)
     })

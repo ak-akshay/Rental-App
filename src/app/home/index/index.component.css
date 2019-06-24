@@ -1,12 +1,10 @@
 .body{
-    background: url("src\assets\images\index_bg.jpeg");
+    background: linear-gradient(to bottom right, #0099ff 0%, #cc33ff 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;  
-    height: 85vh;
-    width: 100vw;
+    background-size: cover;
 }
 h1{
-    color: orchid;
+    color: coral;
     font-size: 3.5em;
 }

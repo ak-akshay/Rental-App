@@ -3,8 +3,30 @@
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-      <h1>Rent your property</h1>
+      <h1>Welcome {{userName}}</h1>
     </div>
     <div class="col-lg-3"></div>
+  </div>
+  <button (click)="getUserName()">Show</button>
+
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-4">
+      <div class="jumbotron">
+        <h1 class="display-3">Add a property</h1>
+        <p class="lead">You can add you owned property for renting and communicate directly to the interested users.</p>
+        <hr class="my-3">
+        <a class="btn btn-primary btn-lg" routerLink="/home/addproperty">Add Now</a>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-4">
+      <div class="jumbotron">
+        <h1 class="display-3">Rent a property</h1>
+        <p class="lead">You can rent any of the available rentals or send a query to the directly to the owner of the property.</p>
+        <hr class="my-3">
+        <a class="btn btn-primary btn-lg" routerLink="/home/allproperties">Rent now</a>
+      </div>
+    </div>
   </div>
 </div>

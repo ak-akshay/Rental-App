@@ -7,6 +7,7 @@
         <p style="color: green;">Price: {{property.price}}</p>
       </div>
       <div class="col-lg-5">
+        <img src="{{image | async}}" alt="Property Image" class="img-thumbnail">
         <h2>Owner's Details</h2>
         <p>Name: {{property.ownerName}}</p>
         <p>Contact: {{property.ownerContact}}</p>
