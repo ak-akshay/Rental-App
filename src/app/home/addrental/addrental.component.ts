@@ -33,14 +33,15 @@ export class AddrentalComponent implements OnInit {
       console.log(err)
     })
   }
+
   SelectFile(event){
     let file = event.target.files[0]
     let date = new Date()
     let unique = '/rentals/'+ date.toString()
     let task = this.storage.upload(unique,file).then(data=>{
+      console.log(data)
       this.path=unique
       this.isUploaded=true
-      console.log(data)
     }).catch(err=>{
       console.log(err)
     })

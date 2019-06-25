@@ -16,7 +16,6 @@ export class IndexComponent implements OnInit {
 
   getUserName(){
     this.userName=this.authService.userDetails.name
+    console.log(this.userName)
   }
-
-  
 }
