@@ -3,6 +3,7 @@
   <h2>Edit</h2>
   <br>
   <form (ngSubmit)="updateProperty(property)" #updateForm="ngForm">
+    <img src="{{img | async}}" alt="Property Image" class="img-thumbnail">
     <div class="form-group">
       <label for="title">Title of Property</label>
       <input name="title" [(ngModel)]="property.title" type="Text" class="form-control" required>
