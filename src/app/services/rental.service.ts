@@ -23,4 +23,42 @@ export class RentalService {
       }))
     ); 
   }
+
+  getOrderedRentals(by){
+    return this.db.collection('rentals',ref=>ref.orderBy('price',by)).snapshotChanges().pipe(
+      map(actions => actions.map(a=>{
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      }))
+    )
+  }
+
+  getByCity(loc){
+    return this.db.collection('rentals',ref=>ref.where('city','==',loc)).snapshotChanges().pipe(
+      map(actions => actions.map(a=>{
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      }))
+    )
+  }
+
+  getMyRentals(owner){
+    return this.db.collection('rentals',ref=>ref.where('ownerEmail','==',owner)).snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    ); 
+  }
+
+  update(property){
+    this.db.collection('rentals').doc(property.id).update(property)
+  }
+
+  delete(id){
+    this.db.collection('rentals').doc(id).delete()
+  }
 }

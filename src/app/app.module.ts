@@ -20,6 +20,8 @@ import { ErrorComponent } from './error/error.component';
 import { SinglepropertyComponent } from './home/rentals/singleproperty/singleproperty.component';
 import { EnquiriesComponent } from './enquiries/enquiries.component';
 import { IndexComponent } from './home/index/index.component';
+import { MypropertiesComponent } from './home/rentals/myproperties/myproperties.component';
+import { EditpropertiesComponent } from './home/rentals/myproperties/editproperties/editproperties.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { IndexComponent } from './home/index/index.component';
     ErrorComponent,
     SinglepropertyComponent,
     EnquiriesComponent,
-    IndexComponent
+    IndexComponent,
+    MypropertiesComponent,
+    EditpropertiesComponent
   ],
   imports: [
     BrowserModule,

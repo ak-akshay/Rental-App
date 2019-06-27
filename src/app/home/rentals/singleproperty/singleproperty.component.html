@@ -1,26 +1,27 @@
 <div class="container-fluid">
+  <br>
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-5">
         <h2>Property Details</h2>
         <h3>{{property.title}}</h3>
         <p>{{property.description}}</p>
         <p style="color: green;">Price: {{property.price}}</p>
-      </div>
-      <div class="col-lg-5">
-        <img src="{{image | async}}" alt="Property Image" class="img-thumbnail">
         <h2>Owner's Details</h2>
         <p>Name: {{property.ownerName}}</p>
         <p>Contact: {{property.ownerContact}}</p>
+      </div>
+      <div class="col-lg-4">
+        <img src="{{image | async}}" alt="Property Image" onerror="this.src='assets/images/error_property_image.png'" class="img-thumbnail">
         <br>
         <button (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
 
         <ng-container *ngIf="showForm">
           <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm" >
             <div class="form-group">
-              <label >Message</label>
               <input ngModel name="message" type="text" class="form-control" placeholder="Enter message">
             </div>
-            <button type="submit">Send</button>
+            <button type="submit" class="btn btn-info" [disabled]="!enquiryForm.valid">Send</button>
           </form>
         </ng-container>
         <br>

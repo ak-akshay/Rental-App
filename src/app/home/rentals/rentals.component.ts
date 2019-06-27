@@ -28,4 +28,15 @@ export class RentalsComponent implements OnInit {
     this.mode='single'
     this.selectedProperty=property
   }
+  getOrdered(by:String){
+    this.rentalService.getOrderedRentals(by).subscribe(data=>
+      this.properties=data)
+  }
+
+  search(searchkey:String){
+    console.log(searchkey)
+    this.rentalService.getByCity(searchkey).subscribe(data=>{
+      this.properties=data
+    })
+  }
 }

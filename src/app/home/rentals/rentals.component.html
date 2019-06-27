@@ -1,17 +1,30 @@
 <div *ngIf="mode=='list'" class="container">
-  <div class="row">
-      <div *ngFor="let property of properties" class="col-lg-4" style="margin-bottom: 10px;">
-          <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <!-- <img src="" class="card-img-top" alt=""> -->
-                <h5 class="card-title">{{property.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{property.locality}}</h6>
-                <p class="card-text" style="color: green;">{{property.price}}</p>
-                <a (click)="ViewDetails(property)" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-      </div>
+  <br>
+  <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Sort</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button (click)="getOrdered('asc')" ngbDropdownItem>Price, low to high</button>
+        <button (click)="getOrdered('desc')" ngbDropdownItem>Price, high to low</button>
   </div>
+  <form #searchForm="ngForm" (ngSubmit)="search(searchForm.value.city)" class="form-inline my-2 my-lg-0">
+      <input ngModel name="city" class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+<hr>
+<div class="row">
+  <div *ngFor="let property of properties" class="col-lg-4" style="margin-bottom: 10px;">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <!-- <img src="" class="card-img-top" alt=""> -->
+        <h5 class="card-title">{{property.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{property.city}}</h6>
+        <p class="card-text" style="color: green;">Rs. {{property.price}}</p>
+        <a (click)="ViewDetails(property)" class="btn btn-primary">View Details</a>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <button *ngIf="mode=='single'" class="btn btn-info" (click)="mode='list'">Back</button>
