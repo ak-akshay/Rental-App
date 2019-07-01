@@ -4,3 +4,9 @@
 .hvr:hover{
     transform: scale(1.2);
 }
+.body{
+    background: linear-gradient(to bottom right, #0099ff 0%, #cc33ff 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
