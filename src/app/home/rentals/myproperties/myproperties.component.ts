@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RentalService } from 'src/app/services/rental.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { AngularFireStorage } from '@angular/fire/storage';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-myproperties',
@@ -15,7 +16,7 @@ export class MypropertiesComponent implements OnInit {
   selectedProperty
   edit:boolean=false
   
-  constructor(public rentalService:RentalService,public authService:AuthService, public storage:AngularFireStorage) { }
+  constructor(private modalService: NgbModal,public rentalService:RentalService,public authService:AuthService, public storage:AngularFireStorage) { }
 
   ngOnInit() {
     this.getMyProperties()
@@ -29,9 +30,17 @@ export class MypropertiesComponent implements OnInit {
     })
   }
 
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then(() => {  });
+  }
+
   deleteProperty(property){
-    console.log(property.id)
-    this.rentalService.delete(property.id)
+    this.selectedProperty = property
+  }
+
+  confirmDelete(){
+    console.log(this.selectedProperty.id)
+    this.rentalService.delete(this.selectedProperty.id)
   }
 
   editProperty(property){

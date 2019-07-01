@@ -13,9 +13,9 @@
       </div>
       <div class="col-lg-4">
         <img src="{{image | async}}" alt="Property Image" onerror="this.src='assets/images/error_property_image.png'" class="img-thumbnail">
+        <br><br>
+        <button (click)="showForm=!showForm" class="btn btn-light btn-block"><i class="fa fa-exclamation-circle"></i> Enquire for this property</button>
         <br>
-        <button (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
-
         <ng-container *ngIf="showForm">
           <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm" >
             <div class="form-group">

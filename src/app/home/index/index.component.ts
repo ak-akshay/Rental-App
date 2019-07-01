@@ -18,4 +18,14 @@ export class IndexComponent implements OnInit {
     this.userName=this.authService.userDetails.name
     console.log(this.userName)
   }
+
+  ngAfterViewInit(){
+    setTimeout( ()=>{
+    this.getUserName()
+      }, 1500)
+    setTimeout( ()=>{
+      this.getUserName()
+      }, 3000)
+  }
+
 }

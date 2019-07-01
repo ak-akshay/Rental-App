@@ -1,46 +1,50 @@
-<div class="container">
-  <br><br>
-  <div class="row">
-    <div class="col-lg-3"></div>
-      <div class="col-lg-6">
-        <h2>Add Your Rental Property</h2>
-        <br>
-        <form (ngSubmit)="addproperty(addRentalForm)" #addRentalForm="ngForm">
-          <div class="form-group">
-            <label for="title">Title of Property</label>
-            <input name="title" ngModel type="Text" class="form-control" placeholder="Enter title" required>
-            <small id="emailHelp" class="form-text text-muted">Title should be in less than 100 letters.</small>
-          </div>
-          <div class="form-group">
-            <label for="price">Price</label>
-            <input name="price" ngModel type="number" class="form-control" placeholder="Enter title" required>
-            <small id="emailHelp" class="form-text text-muted">Price should be given in Rupees</small>
-          </div>
-          <div class="form-group">
-              <label for="city">City</label>
-              <input name="city" ngModel type="Text" class="form-control" placeholder="Enter city" required>
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea rows="6" name="description" ngModel class="form-control" placeholder="Enter description" style="resize: none;"></textarea>
-          </div>     
-          <form>
+<div class="body">
+  <div class="container">
+    <br><br>
+    <div class="row">
+      <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <h1>Add Your Rental Property</h1>
+          <br>
+          <form (ngSubmit)="addproperty(addRentalForm)" #addRentalForm="ngForm">
             <div class="form-group">
-              <label for="propertyImage">Upload an image of the property</label>
-              <input (change)="SelectFile($event)" type="file" class="form-control-file">
-              <div class="progress">
-                <div class="progress-bar bg-info" style="width:50%;"></div>
-              </div>
-              <p *ngIf="isUploaded">Uploaded Successfully</p>
+              <label for="title">Title of Property*</label>
+              <input name="title" ngModel type="Text" class="form-control" placeholder="Enter title" required>
+              <small id="emailHelp" class="form-text">Title should be in less than 100 letters.</small>
             </div>
+            <div class="form-group">
+              <label for="price">Price*</label>
+              <input name="price" ngModel type="number" class="form-control" placeholder="Enter title" required>
+              <small id="emailHelp" class="form-text">Price should be given in Rupees</small>
+            </div>
+            <div class="form-group">
+                <label for="city">City*</label>
+                <input name="city" ngModel type="Text" class="form-control" placeholder="Enter city" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Description*</label>
+              <textarea rows="6" name="description" ngModel class="form-control" placeholder="Enter description" style="resize: none;"></textarea>
+            </div>     
+            <form>
+              <div class="form-group">
+                <label for="propertyImage">Upload an image of the property</label>
+                <div class="container" style="outline-style: dashed; outline-color: white">
+                  <br>
+                  <input (change)="SelectFile($event)" type="file" class="form-control-file">
+                  <br>
+                </div>
+                <p class="btn-outline-warning">Wait for successfully uploading your image before submitting.</p>
+                <p *ngIf="isUploaded" style="font-size: 1.5em;">Uploaded Successfully</p>
+              </div>
+            </form>
+            <p *ngIf="isPropertyAdded" class="alert alert-success">
+                Your property is added successfully. 
+                You can view edit or delete it under <a routerLink="/home/myproperties">My properties</a> section.
+              </p>
+            <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-primary">Submit</button>
           </form>
-          <p *ngIf="isPropertyAdded" class="alert alert-success">
-              Your property is added successfully. 
-              You can view edit or delete it under <a routerLink="/home/myproperties">My properties</a> section.
-            </p>
-          <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    <div class="col-lg-3"></div>
-  </div>
+        </div>
+      <div class="col-lg-2"></div>
+    </div>
+  </div>  
 </div>

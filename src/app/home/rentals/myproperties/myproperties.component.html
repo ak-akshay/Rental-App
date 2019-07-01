@@ -6,7 +6,7 @@
           <h6 class="card-subtitle mb-2 text-muted">{{property.city}}</h6>
           <p class="card-text" style="color: green;">Rs. {{property.price}}</p>
           <button (click)="editProperty(property)" class="btn btn-outline-primary"><i class="fa fa-pencil"></i> Edit property</button>
-          <button (click)="deleteProperty(property)" class="btn btn-outline-danger"><i class="fa fa-trash"></i> Delete property</button>
+          <button (click)="open(content);deleteProperty(property);" class="btn btn-outline-danger"><i class="fa fa-trash"></i> Delete property</button>
         </div>
       </div>
     </div>
@@ -15,3 +15,13 @@
 <app-editproperties [property]="selectedProperty" *ngIf="edit && selectedProperty"></app-editproperties>
 <button *ngIf="edit" (click)="edit=false" class="btn btn-secondary">Cancel</button>
 </div>
+<!--Modal content-->
+<ng-template #content let-modal>
+    <div class="modal-body">
+      <p>Are you sure you want to delete {{selectedProperty.title}}?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close();confirmDelete()">Delete</button>
+    </div>
+</ng-template>
