@@ -1,17 +1,23 @@
 <div class="body">
   <div *ngIf="mode=='list'" class="container">
     <br>
-    <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-warning" id="dropdownBasic1" ngbDropdownToggle>Sort by</button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button (click)="getOrdered('asc')" ngbDropdownItem>Price, low to high</button>
-          <button (click)="getOrdered('desc')" ngbDropdownItem>Price, high to low</button>
-        </div>
+    <div class="row">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-warning" id="dropdownBasic1" ngbDropdownToggle>Sort by</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button (click)="getOrdered('asc')" ngbDropdownItem>Price, low to high</button>
+            <button (click)="getOrdered('desc')" ngbDropdownItem>Price, high to low</button>
+          </div>
+      </div>
+      </div>
+      <div class="col">
+        <form #searchForm="ngForm" (ngSubmit)="search(searchForm.value.city)" class="form-inline my-2 my-lg-0">
+          <input ngModel name="city" class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-    <form #searchForm="ngForm" (ngSubmit)="search(searchForm.value.city)" class="form-inline my-2 my-lg-0">
-      <input ngModel name="city" class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
     <hr>
     <div class="row">
       <div *ngFor="let property of properties" class="col-lg-4" style="margin-bottom: 10px;">
