@@ -55,6 +55,7 @@ export class RentalService {
   }
 
   update(property){
+    console.log(property)
     this.db.collection('rentals').doc(property.id).update(property)
   }
 
