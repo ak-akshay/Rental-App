@@ -26,7 +26,6 @@ export class MypropertiesComponent implements OnInit {
     this.curr_user=this.authService.userDetails.email
     this.rentalService.getMyRentals(this.curr_user).subscribe(res=>{
       this.properties = res
-      console.log(this.properties)
     })
   }
 
@@ -36,10 +35,22 @@ export class MypropertiesComponent implements OnInit {
 
   deleteProperty(property){
     this.selectedProperty = property
+    console.log(this.selectedProperty)
   }
 
   confirmDelete(){
     console.log(this.selectedProperty.id)
+    // Create a reference to the file to delete
+    // Points to the root reference
+    var storageRef = this.storage.ref('')
+    // Points to 'images'
+    var rentalsImageRef = storageRef.child(this.selectedProperty.image);
+    // Delete the file
+    rentalsImageRef.delete().then(() =>{
+      console.log("Image deleted from the firebase storage.")
+    }).catch(function(error) {
+      console.log(error)
+    });
     this.rentalService.delete(this.selectedProperty.id)
   }
 
