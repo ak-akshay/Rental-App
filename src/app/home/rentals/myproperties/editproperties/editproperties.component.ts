@@ -35,8 +35,12 @@ export class EditpropertiesComponent implements OnInit {
 
   updateProperty(property){
     let image = this.path
+    console.log(image)
+    //let title = property.title
+    //let price = property.price
+    //let city = property.city
+    //let description = property.description
     this.rentalService.update({image,...property})
-    this.success=true
-    
+    this.success=true   
   }
 }

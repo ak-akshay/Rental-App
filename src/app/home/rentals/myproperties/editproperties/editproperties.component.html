@@ -5,6 +5,16 @@
   <form (ngSubmit)="updateProperty(property)" #updateForm="ngForm">
     <img src="{{img | async}}" alt="Property Image" class="img-thumbnail">
     <div class="form-group">
+      <label for="propertyImage">Upload new image of the property</label>
+      <div class="container" style="outline-style: dashed; outline-color: white">
+        <br>
+        <input (change)="SelectFile($event)" type="file" class="form-control-file">
+        <br>
+      </div>
+      <p class="btn-outline-warning">Wait for successfully uploading your image before saving.</p>
+      <p *ngIf="isUploaded" style="font-size: 1.5em;">Uploaded Successfully</p>
+    </div>
+    <div class="form-group">
       <label for="title">Title of Property</label>
       <input name="title" [(ngModel)]="property.title" type="Text" class="form-control" required>
     </div>
