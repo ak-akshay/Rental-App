@@ -20,13 +20,11 @@ export class AddrentalComponent implements OnInit {
   ngOnInit() {
   }
   addproperty(addrentalform:NgForm){
-    console.log(addrentalform.value)
     let ownerEmail = this.authService.userDetails.email
     let ownerName = this.authService.userDetails.name
     let ownerContact = this.authService.userDetails.mobile
     let image = this.path
     this.rentalService.addRental({ownerEmail,image,ownerName,ownerContact,...addrentalform.value}).then(data=>{
-      console.log(data.id)
       addrentalform.reset()
       this.isPropertyAdded=true
     }).catch(err=>{
