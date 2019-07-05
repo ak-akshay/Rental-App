@@ -13,17 +13,16 @@
       </div>
       <div class="col">
         <form #searchForm="ngForm" (ngSubmit)="search(searchForm.value.city)" class="form-inline my-2 my-lg-0">
-          <input ngModel name="city" class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+          <input ngModel name="city" class="form-control mr-sm-2" type="search" placeholder="Search By City">
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Search(Case-sensitive)</button>
         </form>
       </div>
     </div>
     <hr>
     <div class="row">
-      <div *ngFor="let property of properties" class="col-lg-4" style="margin-bottom: 10px;">
-        <div class="card" style="width: 18rem;">
+      <div *ngFor="let property of properties" class="col-md-4">
+        <div class="card mb-4 shadow-sm">
           <div class="card-body">
-            <!-- <img src="" class="card-img-top" alt=""> -->
             <h5 class="card-title">{{property.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{property.city}}</h6>
             <p class="card-text" style="color: green;">Rs. {{property.price}}</p>
@@ -33,6 +32,20 @@
       </div>
     </div>
   </div>
+
+  <!--<div class="row">
+    <div *ngFor="let property of properties" class="col-lg-4" style="margin-bottom: 10px;">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{property.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{property.city}}</h6>
+          <p class="card-text" style="color: green;">Rs. {{property.price}}</p>
+          <a (click)="ViewDetails(property)" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
   
   <button *ngIf="mode=='single'" class="btn btn-outline-light" (click)="mode='list'">Back</button>
   <app-singleproperty [property]="selectedProperty" *ngIf="mode=='single' && selectedProperty"></app-singleproperty>

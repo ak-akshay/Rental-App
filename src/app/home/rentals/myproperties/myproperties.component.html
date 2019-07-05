@@ -1,12 +1,12 @@
 <br>
 <div class="row">
-    <div *ngFor="let property of properties" class="col-lg-4" style="margin-bottom: 10px;">
-      <div class="card" style="width: 24rem;">
+    <div *ngFor="let property of properties" class="col-md-4">
+      <div class="card mb-4 shadow-sm">
         <div class="card-body">
           <h5 class="card-title">{{property.title}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{property.city}}</h6>
           <p class="card-text" style="color: green;">Rs. {{property.price}}</p>
-          <button (click)="editProperty(property)" class="btn btn-outline-primary"><i class="fa fa-pencil"></i> Edit property</button>
+          <button (click)="editProperty(property)" class="btn btn-outline-primary"><i class="fa fa-pencil"></i> Edit property</button> &nbsp;
           <button (click)="open(content);deleteProperty(property);" class="btn btn-outline-danger"><i class="fa fa-trash"></i> Delete property</button>
         </div>
       </div>

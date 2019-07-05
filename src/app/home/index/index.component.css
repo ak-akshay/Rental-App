@@ -1,4 +1,14 @@
-h1{
-    color: coral;
-    font-size: 3.5em;
+.top-center {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
 }
+
+@media (max-width: 50em) {
+    .top-center{
+        font-size: 1.2rem;
+    }
+  }
+  
