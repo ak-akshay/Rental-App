@@ -6,13 +6,18 @@
     <img src="{{img | async}}" alt="Property Image" class="img-thumbnail">
     <div class="form-group">
       <label for="propertyImage">Upload new image of the property</label>
-      <div class="container" style="outline-style: dashed; outline-color: white">
+      <div class="container" style="outline-style: dashed; outline-color: black;">
         <br>
         <input (change)="SelectFile($event)" type="file" class="form-control-file">
         <br>
       </div>
-      <p class="btn-outline-warning">Wait for successfully uploading your image before saving.</p>
-      <p *ngIf="isUploaded" style="font-size: 1.5em;">Uploaded Successfully</p>
+      <p style="color:darkorange;">Wait for successfully uploading your image before submitting.</p>
+              <div *ngIf="isUploaded=='process'">
+                <div class="spinner-border text-primary" role="status"></div>
+                <span class="muted">Uploading...</span>
+              </div>
+              <p *ngIf="isUploaded=='success'" style="font-size: 1.5em;color: green;">Uploaded Successfully</p>
+              <p *ngIf="isUploaded=='fail'" style="font-size: 1.5em;color: red;">Uploaded Failed. Try again.</p>
     </div>
     <div class="form-group">
       <label for="title">Title of Property</label>

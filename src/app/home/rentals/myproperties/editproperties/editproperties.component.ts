@@ -13,7 +13,7 @@ export class EditpropertiesComponent implements OnInit {
   img:any
   success:boolean=false
   path
-  isUploaded:boolean=false
+  isUploaded:String="none"
   constructor(public rentalService:RentalService,public storage:AngularFireStorage) { }
 
   ngOnInit() {
@@ -24,12 +24,14 @@ export class EditpropertiesComponent implements OnInit {
     let file = event.target.files[0]
     let date = new Date()
     let unique = '/rentals/'+ date.toString()
+    this.isUploaded="process"
     let task = this.storage.upload(unique,file).then(data=>{
       console.log(data)
       this.path=unique
-      this.isUploaded=true
+      this.isUploaded="success"
     }).catch(err=>{
       console.log(err)
+      this.isUploaded="fail"
     })
   }
 
@@ -41,6 +43,6 @@ export class EditpropertiesComponent implements OnInit {
     //let city = property.city
     //let description = property.description
     this.rentalService.update({image,...property})
-    this.success=true   
+    this.success=true
   }
 }

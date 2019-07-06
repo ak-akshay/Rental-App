@@ -41,9 +41,9 @@
               <p *ngIf="isUploaded=='fail'" style="font-size: 1.5em;color: red;">Uploaded Failed. Try again.</p>
             </div>
             <p *ngIf="isPropertyAdded" class="alert alert-success">
-                Your property is added successfully. 
-                You can view edit or delete it under <a routerLink="/home/myproperties">My properties</a> section.
-              </p>
+              Your property is added successfully. 
+              You can view edit or delete it under <a routerLink="/home/myproperties">My properties</a> section.
+            </p>
             <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-outline-primary">Submit</button>&nbsp;
             <button type="reset" class="btn btn-outline-secondary" (click)="deleteUpload()">Cancel</button>
           </form>
