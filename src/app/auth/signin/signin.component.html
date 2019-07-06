@@ -1,4 +1,4 @@
-<div class="body">
+<div class="bg-box">
   <br><br>
 <div class="container">
   <div class="row">
@@ -28,11 +28,13 @@
         <button type="submit" [disabled]="!signinForm.valid" class="btn btn-primary">Sign In</button>
       </form>
       <br>
-      <div class="alert alert-secondary" role="alert" style="font-size:0.8em;">
-        New user? <a routerLink="/auth/signup" class="alert-link">Sign up here</a>.
-      </div>
     </div>
     <div class="col-lg-3"></div>
   </div>
 </div>
+  <div class="alert">
+    Don't have an account?
+    <br>
+    <a routerLink="/auth/signup" class="btn btn-outline-light">Sign up here</a>
+  </div>
 </div>
