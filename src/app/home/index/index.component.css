@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Patua+One&display=swap');
+
 .top-center {
   position: absolute;
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
+  font-family: 'Pacifico', cursive;
   font-size: 2rem;
+}
+
+.heading{
+  font-family: 'Patua One', cursive;
 }
 
 @media (max-width: 50em) {

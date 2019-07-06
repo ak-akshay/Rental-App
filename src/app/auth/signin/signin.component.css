@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 .bg-box{
     margin: 5% auto;
     background-color: darkorange;
@@ -17,9 +18,10 @@
     padding-top: 5%; 
 }
 .title{
-    padding: 2% 5%;
+    padding: 2% 10%;
     color: black;
     font-size: 2em;
+    font-family: 'Josefin Sans', sans-serif;
 }
 .alert{
     color: cornsilk;

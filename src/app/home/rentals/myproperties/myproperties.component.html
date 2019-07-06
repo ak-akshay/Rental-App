@@ -1,5 +1,6 @@
 <br>
-<div class="row">
+<div class="container">
+  <div class="row">
     <div *ngFor="let property of properties" class="col-md-4">
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
@@ -11,6 +12,7 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
 <div class="container">
 <app-editproperties [property]="selectedProperty" *ngIf="edit && selectedProperty"></app-editproperties>
