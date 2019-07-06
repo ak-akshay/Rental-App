@@ -14,7 +14,7 @@ export class AddrentalComponent implements OnInit {
 
   isPropertyAdded:boolean=false
   path
-  isUploaded:boolean=false
+  isUploaded:String="none"
   constructor(public rentalService:RentalService,public router:Router,public authService:AuthService,private storage: AngularFireStorage) { }
 
   ngOnInit() {
@@ -27,6 +27,7 @@ export class AddrentalComponent implements OnInit {
     this.rentalService.addRental({ownerEmail,image,ownerName,ownerContact,...addrentalform.value}).then(data=>{
       addrentalform.reset()
       this.isPropertyAdded=true
+      this.isUploaded="none"
     }).catch(err=>{
       console.log(err)
     })
@@ -36,12 +37,23 @@ export class AddrentalComponent implements OnInit {
     let file = event.target.files[0]
     let date = new Date()
     let unique = '/rentals/'+ date.toString()
+    this.isUploaded="process"
     let task = this.storage.upload(unique,file).then(data=>{
       console.log(data)
       this.path=unique
-      this.isUploaded=true
+      this.isUploaded="success"
+      console.log(this.path)
     }).catch(err=>{
       console.log(err)
+      this.isUploaded="fail"
     })
+  }
+
+  deleteUpload(){
+    if(this.isUploaded=="success"){
+      this.storage.ref(this.path).delete();
+      this.isUploaded="none";
+    }
+    
   }
 }

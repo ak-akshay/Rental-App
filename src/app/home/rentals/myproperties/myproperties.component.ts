@@ -16,7 +16,7 @@ export class MypropertiesComponent implements OnInit {
   selectedProperty
   edit:boolean=false
   
-  constructor(private modalService: NgbModal,public rentalService:RentalService,public authService:AuthService, public storage:AngularFireStorage) { }
+  constructor(private modalService: NgbModal,public rentalService:RentalService,private authService:AuthService, private storage:AngularFireStorage) { }
 
   ngOnInit() {
     this.getMyProperties()
@@ -43,7 +43,7 @@ export class MypropertiesComponent implements OnInit {
     // Create a reference to the file to delete
     // Points to the root reference
     var storageRef = this.storage.ref('')
-    // Points to 'images'
+    // Points to 'image'
     var rentalsImageRef = storageRef.child(this.selectedProperty.image);
     // Delete the file
     rentalsImageRef.delete().then(() =>{
