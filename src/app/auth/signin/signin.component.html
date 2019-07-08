@@ -8,7 +8,7 @@
     <div class="col-lg-1"></div>
     <div class="col-lg-9">
       <form (ngSubmit)="signin(signinForm)" #signinForm="ngForm">
-        <div id="alert" class="alert alert-danger alert-dismissible fade show" style="display: none;">
+        <div id="alert" class="alert alert-danger alert-dismissible" style="display: none;">
           {{auth.errmsg}} Try Again
           <button type="button" class="close" (click)="close()">
             <span aria-hidden="true">&times;</span>
@@ -31,7 +31,7 @@
     <div class="col-lg-3"></div>
   </div>
 </div>
-  <div class="alert">
+  <div class="side">
     Don't have an account?
     <br>
     <a routerLink="/auth/signup" class="btn btn-outline-light">Sign up here</a>

@@ -23,10 +23,10 @@
     font-size: 2em;
     font-family: 'Josefin Sans', sans-serif;
 }
-.alert{
+.side{
     color: cornsilk;
     position: absolute;
-    right: 10%;
+    right: 7%;
     width: 30%;
     font-size: 1.5em;
 }
@@ -38,9 +38,9 @@
         width: 100%;
         height: max-content;
     }
-    .alert{
+    .side{
         position: absolute;
-        bottom:0;
+        bottom: 1%;
         left: 1%;
         width: 100%;
     }
