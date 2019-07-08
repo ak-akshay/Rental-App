@@ -15,7 +15,7 @@ export class EnquiryService {
   }
 
   getEnquiries(){
-    return this.db.collection('enquiries',ref=>ref.where('ownerEmail','==',this.authService.userDetails.email).where('valid','==','true')).snapshotChanges().pipe(
+    return this.db.collection('enquiries',ref=>ref.where('ownerEmail','==',this.authService.userDetails.email).where('valid','==',true)).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;

@@ -1,11 +1,11 @@
 <div class="container">
   <br>
   <h2 *ngIf="enquiries.length==0">
-    Any enquiries made for your properties will be validated by us and then shown here. <br>
+    Any enquiries made for your properties will be shown here. <br>
     You currently have no valid enquiries.
   </h2>
   <button *ngIf="enquiries.length!=0 && !deleteMode" class="btn btn-outline-danger" style="float: right;" (click)="deleteMode=true">Delete Enquiriy(s)</button>
-  <button *ngIf="enquiries.length!=0 && deleteMode" class="btn btn-outline-secondary" style="float: right;" (click)="deleteMode=false;cancelDelete();">Cancel</button>
+  <button *ngIf="enquiries.length!=0 && deleteMode" class="btn btn-outline-secondary" style="float: right;" (click)="deleteMode=false;cancelDelete();">Done</button>
   <button *ngIf="enquiries.length!=0 && deleteMode" class="btn btn-danger" style="float: right;" [disabled]="toDelete.length==0" (click)="confirmDelete()">Confirm Delete</button>
   <table *ngIf="enquiries.length!=0" class="table table-striped">
     <thead>
@@ -27,4 +27,5 @@
       </tr>
     </tbody>
   </table>
+  <div style="color: darkgreen;">*You'll see an enquiry only after we validate it for you.</div>
 </div>

@@ -28,7 +28,8 @@ export class SinglepropertyComponent implements OnInit {
     let ownerEmail = this.property.ownerEmail
     let timestamp = new Date()
     let email = this.authService.userDetails.email
-    this.enquiryService.addEnquiry({timestamp,propertyId,ownerEmail,email,title,...enquiryForm.value}).then(data=>{
+    let valid:boolean = false
+    this.enquiryService.addEnquiry({valid,timestamp,propertyId,ownerEmail,email,title,...enquiryForm.value}).then(data=>{
     enquiryForm.reset()
     document.getElementById("alert").style.display="block"
     this.showForm=false
