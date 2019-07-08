@@ -24,11 +24,11 @@ export class SinglepropertyComponent implements OnInit {
   sendEnquiry(enquiryForm:NgForm){
     console.log(enquiryForm.value)
     let title = this.property.title
-    let id = this.property.id
+    let propertyId = this.property.id
     let ownerEmail = this.property.ownerEmail
     let timestamp = new Date()
     let email = this.authService.userDetails.email
-    this.enquiryService.addEnquiry({timestamp,id,ownerEmail,email,title,...enquiryForm.value}).then(data=>{
+    this.enquiryService.addEnquiry({timestamp,propertyId,ownerEmail,email,title,...enquiryForm.value}).then(data=>{
     enquiryForm.reset()
     document.getElementById("alert").style.display="block"
     this.showForm=false
