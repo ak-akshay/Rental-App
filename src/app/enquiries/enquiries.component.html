@@ -1,15 +1,25 @@
 <div class="container">
-  <table class="table table-striped">
+  <br>
+  <h2 *ngIf="!enq">
+    Any enquiries made for your properties will be shown here. <br>
+    You currently have no enquiries.
+  </h2>
+  <button *ngIf="enq && !deleteMode" class="btn btn-outline-danger" style="float: right;" (click)="deleteMode=true">Delete Enquiriy(s)</button>
+  <button *ngIf="enq && deleteMode" class="btn btn-outline-secondary" style="float: right;" (click)="deleteMode=false;cancelDelete();">Cancel</button>
+  <button *ngIf="enq && deleteMode" class="btn btn-danger" style="float: right;" (click)="confirmDelete()">Confirm Delete</button>
+  <table *ngIf="enq" class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Title</th>
+        <th *ngIf="deleteMode">Select</th>
+        <th scope="col">For(title)</th>
         <th scope="col">Message</th>
-        <th scope="col">Email</th>
+        <th scope="col">From(email)</th>
         <th scope="col">Date</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let enquiry of enquiries">
+        <td *ngIf="deleteMode"><input type="checkbox" (change)="checkboxChanged($event,enquiry.id)"></td>
         <td>{{enquiry.title}}</td>
         <td>{{enquiry.message}}</td>
         <td>{{enquiry.email}}</td>
