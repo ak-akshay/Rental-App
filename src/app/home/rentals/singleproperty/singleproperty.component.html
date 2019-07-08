@@ -19,7 +19,7 @@
         <ng-container *ngIf="showForm">
           <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm" >
             <div class="form-group">
-              <input ngModel name="message" type="text" class="form-control" placeholder="Enter message">
+              <input ngModel name="message" type="text" class="form-control" placeholder="Enter message" required>
             </div>
             <button type="submit" class="btn btn-info" [disabled]="!enquiryForm.valid">Send</button>
           </form>
