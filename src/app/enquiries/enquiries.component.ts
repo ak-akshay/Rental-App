@@ -9,7 +9,6 @@ import { EnquiryService } from '../services/enquiry.service';
 export class EnquiriesComponent implements OnInit {
 
   enquiries=[]
-  enq:boolean=false
   deleteMode:boolean=false
   toDelete=[]
   constructor(public enquiryService:EnquiryService) { }
@@ -22,7 +21,6 @@ export class EnquiriesComponent implements OnInit {
     this.enquiryService.getEnquiries().subscribe(res=>{
       this.enquiries = res
       if(this.enquiries.length!=0){
-        this.enq=true
       }
       console.log(this.enquiries)
     })
@@ -31,13 +29,11 @@ export class EnquiriesComponent implements OnInit {
   checkboxChanged(event,value){
     if(event.target.checked){
      this.toDelete.push(value)
-     console.log(this.toDelete)
     }
     if(!event.target.checked){
       let index = this.toDelete.indexOf(value);
       if(index > -1)
         {this.toDelete.splice(index,1)}
-      console.log(this.toDelete)
     }
   }
 
@@ -51,7 +47,7 @@ export class EnquiriesComponent implements OnInit {
     {
       this.enquiryService.deleteEnquiry(this.toDelete[index])
       index--;
-      console.log(this.toDelete)
     }
+    this.toDelete=[]
   }
 }
