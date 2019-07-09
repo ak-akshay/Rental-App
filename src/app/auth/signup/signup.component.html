@@ -1,11 +1,5 @@
-<br>
-  <div class="row"></div>
-  <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-10">
-      <div class="card" style="width: 80vw;">
-        <img src="assets/images/signup.jpg" class="card-img-top" style="height:350px;">
-        <div class="card-body">
+<!--
+<div class="card-body">
           <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm" class="card-text">
               <div class="title">Sign Up</div>
               <div id="alert" class="alert alert-danger alert-dismissible fade show" style="display:none;">
@@ -14,34 +8,30 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" style="width: 150px;">Email Address</span>
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="form-control" style="border-right: 0;border-radius: 0;"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                </div>
+                <input ngModel name="email" type="email" class="form-control" placeholder="Email" style="border-left: 0" required>
               </div>
-              <input name="email" ngModel type="email" class="form-control" required>
-              <div class="input-group-prepend">
-                <span class="input-group-text" style="width: 150px;">Password</span>
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="form-control" style="border-right: 0;border-radius: 0;"><i class="fa fa-user" aria-hidden="true"></i></span>
+                </div>
+                <input ngModel name="name" type="text" class="form-control" placeholder="Name" style="border-left: 0" required>
               </div>
-              <input name="password" ngModel type="password" class="form-control" required>
-            </div>
-            <br>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" style="width: 150px;">Your Name</span>
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="form-control" style="border-right: 0;border-radius: 0;"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                </div>
+                <input ngModel name="mobile" type="text" class="form-control" placeholder="Phone" style="border-left: 0" required>
               </div>
-              <input name="name" ngModel type="text" class="form-control" required>
-              <div class="input-group-prepend">
-                <span class="input-group-text" style="width: 150px;">Mobile</span>
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="form-control" style="border-right: 0;border-radius: 0;"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                </div>
+                <input ngModel name="password" type="text" class="form-control" placeholder="Password" style="border-left: 0" required>
               </div>
-              <input name="mobile" ngModel type="text" class="form-control" required>
-            </div>
-            <br>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" style="width: 150px;">Date of birth</span>
-              </div>
-              <input name="dob" ngModel type="date" class="form-control" required>
-            </div>
             <br>
             <button type="submit" [disabled]="!signupForm.valid" class="btn btn-success">Sign Up</button>
           </form>
@@ -50,7 +40,44 @@
             Existing user? <a routerLink="/auth/signin" class="alert-link">Sign in here</a>.
           </div>
         </div>
+-->
+
+<div class="bg-gra-01">
+  <br>
+  <div class="wrapper">
+    <div class="card card-3">
+      <div class="card-heading"></div>
+      <div class="card-body">
+        <h2 class="title">Sign Up</h2>
+        <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
+          <div id="alert" class="alert alert-danger alert-dismissible fade show" style="display:none;">
+            {{auth.errmsg}} Try again
+            <button type="button" class="close" (click)="close()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="input-group">
+            <input ngModel class="input--style-3" type="text" placeholder="Userame" name="name" required>
+          </div>
+          <div class="input-group">
+            <input ngModel class="input--style-3" type="email" placeholder="Email" name="email" required>
+          </div>
+          <div class="input-group">
+            <input ngModel class="input--style-3" type="mobile" placeholder="Phone" name="mobile" required>
+          </div>
+          <div class="input-group">
+            <input ngModel class="input--style-3" type="password" placeholder="Password" name="password" required>
+          </div>
+          <div>
+            <button class="btn btn--pill btn--green" [disabled]="!signupForm.valid" type="submit">Submit</button>
+          </div>
+        </form>
+        <br>
+        <div class="alert alert-secondary" role="alert" style="font-size:0.8em;">
+          Existing user? <a routerLink="/auth/signin" class="alert-link">Sign in here</a>.
+        </div>
       </div>
     </div>
-  <div class="col-lg-2"></div>
-</div><br>
+  </div>
+  <br>
+</div>
