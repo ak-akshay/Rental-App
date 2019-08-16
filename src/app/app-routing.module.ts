@@ -14,13 +14,13 @@ import { MypropertiesComponent } from './home/rentals/myproperties/myproperties.
 import { EditpropertiesComponent } from './home/rentals/myproperties/editproperties/editproperties.component';
 
 const routes: Routes = [
-  {path: '' , component:HomeComponent , canActivate:[AuthguardService]},
-  {path:'home' , component:HomeComponent , canActivate:[AuthguardService] , children:[
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path:'home' , component:HomeComponent , children:[
     {path:'' , component:IndexComponent},
+    {path:'addproperty' , component:AddrentalComponent , canActivate:[AuthguardService]},
     {path:'allproperties' , component:RentalsComponent},
-    {path:'addproperty' , component:AddrentalComponent},
-    {path:'enquiries' , component:EnquiriesComponent},
-    {path:'myproperties' , component:MypropertiesComponent , children:[
+    {path:'enquiries' , component:EnquiriesComponent , canActivate:[AuthguardService]},
+    {path:'myproperties' , component:MypropertiesComponent , canActivate:[AuthguardService] , children:[
       {path:'editproperty' , component:EditpropertiesComponent}
     ]}
   ]},
