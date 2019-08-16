@@ -6,10 +6,9 @@
         <h2>Property Details</h2>
         <h3>{{property.title}}</h3>
         <p>{{property.description}}</p>
-        <p style="color: green;">Price: {{property.price}}</p>
-        <h2>Owner's Details</h2>
-        <p>Name: {{property.ownerName}}</p>
-        <p>Contact: {{property.ownerContact}}</p>
+        <p style="color: green;">Price: <i class="fa fa-inr" aria-hidden="true"></i> {{property.price}}</p>
+        <br>
+        <p>Property added by: {{property.ownerName}}</p>
       </div>
       <div class="col-lg-4">
         <img src="{{image | async}}" alt="Property Image" onerror="this.src='assets/images/error_property_image.png'" class="img-thumbnail">

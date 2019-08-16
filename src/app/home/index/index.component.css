@@ -7,11 +7,20 @@
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Pacifico', cursive;
-  font-size: 2rem;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .heading{
   font-family: 'Patua One', cursive;
+}
+
+.gradientbg{
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+}
+
+.separator svg{
+  fill: white;
 }
 
 @media (max-width: 50em) {
@@ -19,4 +28,3 @@
         font-size: 1.2rem;
     }
 }
-  

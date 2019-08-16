@@ -45,13 +45,10 @@ export class MypropertiesComponent implements OnInit {
     var storageRef = this.storage.ref('')
     // Points to 'image'
     var rentalsImageRef = storageRef.child(this.selectedProperty.image);
-    // Delete the file
-    rentalsImageRef.delete().then(() =>{
-      console.log("Image deleted from the firebase storage.")
-    }).catch(function(error) {
-      console.log(error)
-    });
+    // Delete property
     this.rentalService.delete(this.selectedProperty.id)
+    // Delete the file
+    rentalsImageRef.delete();
   }
 
   editProperty(property){

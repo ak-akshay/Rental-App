@@ -1,25 +1,52 @@
-<h1 class="heading text-center">Welcome {{userName}}</h1>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/assets/images/carousel_1.jpg" class="img-fluid" alt="Image one">
+      <div class="top-center">Simplest way to manage your property.</div>
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/images/carousel_3.jpg" class="img-fluid" alt="Image two">
+      <div class="top-center">Discover your dream home.</div>
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/images/carousel_2.jpg" class="img-fluid" alt="Image three">
+      <div class="top-center">Find the perfect tenant.</div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+<!-- SVG Seperator -->
+<div class="separator separator-bottom separator-skew zindex-100 gradientbg">
+    <svg x="0" y="0" viewBox="0 0 2560 300" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gradient">
+          <stop offset="0%" stop-color="#fc6076"></stop>
+          <stop offset="100%" stop-color="#ff9a44"></stop>
+        </linearGradient>
+      </defs>
+      <polygon points="2560 150 2560 300 0 300"></polygon>
+    </svg>
+</div>
 <div class="container">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/assets/images/carousel_1.jpg" class="img-fluid" alt="Image one">
-          <div class="top-center">Simplest way to manage your property.</div>
-        </div>
-        <div class="carousel-item">
-          <img src="/assets/images/carousel_2.jpg" class="img-fluid" alt="Image two">
-          <div class="top-center">Discover your dream home.</div>
-        </div>
-        <div class="carousel-item">
-          <img src="/assets/images/carousel_3.jpg" class="img-fluid" alt="Image three">
-          <div class="top-center">Find the perfect tenant.</div>
+  <h1 class="heading text-center">Properties</h1><br>
+  <div class="row">
+    <div *ngFor="let property of properties" class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{property.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{property.city}}</h6>
+          <p class="card-text" style="color: green;"><i class="fa fa-inr" aria-hidden="true"></i> {{property.price}}</p>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </a>
     </div>
+    <div class="card mb-4 shadow-sm">
+      <a routerLink="/home/allproperties" class=" card-body btn btn-primary">View All Properties <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <br>
 </div>
