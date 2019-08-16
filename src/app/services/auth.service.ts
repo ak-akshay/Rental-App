@@ -24,8 +24,6 @@ export class AuthService {
       this.getUserInfo().subscribe(info=>{
         this.userDetails = info.data()
       })
-      console.log(data)
-      console.log(this.getUserInfo())
       this.router.navigateByUrl('/home')
     }).catch(err=>{
       this.errmsg=err.message
@@ -49,6 +47,11 @@ export class AuthService {
       console.log(err)
       this.errmsg=err.message
     })
+  }
+
+  logOut(){
+    this.FirebaseAuth.auth.signOut();
+    delete this.userDetails;
   }
 
   addUser(user){
