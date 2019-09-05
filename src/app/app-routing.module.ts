@@ -12,6 +12,7 @@ import { EnquiriesComponent } from './enquiries/enquiries.component';
 import { IndexComponent } from './home/index/index.component';
 import { MypropertiesComponent } from './home/rentals/myproperties/myproperties.component';
 import { EditpropertiesComponent } from './home/rentals/myproperties/editproperties/editproperties.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,6 +25,7 @@ const routes: Routes = [
       {path:'editproperty' , component:EditpropertiesComponent}
     ]}
   ]},
+  {path: 'admin' , component:AdminComponent},
   {path: 'auth' , component:AuthComponent},
   {path: 'auth/signin' , component:SigninComponent},
   {path: 'auth/signup' , component:SignupComponent},

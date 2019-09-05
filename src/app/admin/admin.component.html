@@ -1,0 +1,125 @@
+<nav class="nav navbar-light gradient-bg">
+  <a class="navbar-brand" routerLink="/home">
+    <img src="\assets\images\RentalApp-logo.PNG" alt="Logo" style="height:60px;width:90px;">
+  </a>
+  <div class="text-center">
+      <h2>Admin Console</h2>
+  </div>
+</nav>
+<br>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-2">
+    <div class="card thumb" style="width: 6rem;">
+      <img src="/assets/images/team.png" class="card-img-top" alt="Users" (click)="getAllUsers();">
+      <div class="card-body text-center">
+        <h6 class="card-text">Users</h6>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+      <div class="card thumb" style="width: 6rem;">
+        <img src="/assets/images/rental.png" class="card-img-top" alt="Rentals" (click)="getAllRentals();">
+        <div class="card-body text-center">
+          <h6 class="card-text">Rentals</h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card thumb" style="width: 6rem;">
+          <img src="/assets/images/enquiry.png" class="card-img-top" alt="Enquiry" (click)="getAllEnquiries();">
+          <div class="card-body text-center">
+            <h6 class="card-text">Enquiry</h6>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-3"></div>
+  </div>
+  <br>
+  <div class="text-center" *ngIf="users.length==0 && rentals.length==0 && enquiries.length==0">
+      <div class="spinner-grow text-success" style="width: 6rem; height: 6rem;" role="status"></div>
+  </div>
+
+<!--Users Table-->
+<div class="container table-responsive-sm">
+  <table *ngIf="show=='users' && users.length!=0" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+        <th scope="col">Sign Up Time</th>
+        <th scope="col">Status(Active)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users;let i=index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.mobile}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.createdOn.seconds * 1000 | date:'medium'}}</td>
+        <td>{{user.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--Rentals Table-->
+<div class="container table-responsive-sm">
+    <table *ngIf="show=='rentals' && rentals.length!=0" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title of property</th>
+          <th scope="col">Owner Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Price</th>
+          <th scope="col">Added on</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rental of rentals;let i=index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{rental.title}}</td>
+          <td>{{rental.ownerName}}</td>
+          <td>{{rental.ownerEmail}}</td>
+          <td>{{rental.ownerContact}}</td>
+          <td>{{rental.price}}</td>
+          <td>{{rental.createdOn.seconds * 1000 | date:'medium'}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<!--Enquiries Table-->
+<div class="container table-responsive-sm">
+    <table *ngIf="show=='enquiries' && enquiries.length!=0" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">From(email)</th>
+          <th scope="col">To(email)</th>
+          <th scope="col">Property Title</th>
+          <th scope="col">Message</th>
+          <th scope="col">Time</th>
+          <th scope="col">Valid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enquiry of enquiries;let i=index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{enquiry.email}}</td>
+          <td>{{enquiry.ownerEmail}}</td>
+          <td>{{enquiry.title}}</td>
+          <td>{{enquiry.message}}</td>
+          <td>{{enquiry.timestamp.seconds * 1000 | date:'medium'}}</td>
+          <td>{{enquiry.valid}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<app-footer></app-footer>

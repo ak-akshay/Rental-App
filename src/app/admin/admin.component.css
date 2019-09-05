@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap');
+
+.gradient-bg{
+    background: linear-gradient(to right, rgba(67, 233, 123,0.8) 0%, rgba(56, 249, 215, 0.8) 100%);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    border: 0;
+}
+
+h2{
+    font-family: 'Saira Stencil One', cursive;
+    text-align: center;
+    width: 100%;
+    font-size: 3em;
+}
+.thumb{
+    border: none;
+    cursor: pointer;
+}

@@ -23,6 +23,7 @@ import { IndexComponent } from './home/index/index.component';
 import { MypropertiesComponent } from './home/rentals/myproperties/myproperties.component';
 import { EditpropertiesComponent } from './home/rentals/myproperties/editproperties/editproperties.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FooterComponent } from './home/footer/footer.component';
     IndexComponent,
     MypropertiesComponent,
     EditpropertiesComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

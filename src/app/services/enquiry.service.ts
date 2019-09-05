@@ -24,6 +24,16 @@ export class EnquiryService {
     ); 
   }
 
+  getAllEnquiries(){
+    return this.db.collection('enquiries').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    ); 
+  }
+
   deleteEnquiry(id){
     this.db.collection('enquiries').doc(id).delete().then(() => {
       console.log("Deleted")
