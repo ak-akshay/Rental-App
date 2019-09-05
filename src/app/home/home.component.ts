@@ -55,18 +55,6 @@ export class HomeComponent implements OnInit {
     }, 3000)
   }
   
-
-  /*navScroll(){
-      var navbar = document.getElementById('navbar');
-      var fromTopPx = 10; // distance to trigger
-      var scrolledFromtop = window.scrollY;
-      if(scrolledFromtop > fromTopPx)
-        {
-          navbar.classList.remove('no-bg');
-          navbar.classList.add('gradient-bg');
-        }
-  }*/
-
   getUserName(){
     this.userName=this.authService.userDetails.name
     console.log(this.userName)

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +37,13 @@ export class AuthService {
     let password = userD.value.password
     let name = userD.value.name
     let mobile = userD.value.mobile
+    let createdOn = new Date()
+    let status:boolean = true 
     this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data=>{
       console.log(data)
       this.userid=data.user.uid
-      this.addUser({email,name,mobile})
+
+      this.addUser({email,name,mobile,createdOn,status})
       this.router.navigateByUrl('/auth/signin')
     }).catch(err=>{
       document.getElementById('alert').style.display="block"
@@ -69,5 +73,15 @@ export class AuthService {
   getUserInfo(){
     //return this.userDetails.user
     return this.db.collection('users').doc(this.userid).get()
+  }
+
+  getUsers(){
+    return this.db.collection('users').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    ); 
   }
 }

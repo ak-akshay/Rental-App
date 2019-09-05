@@ -34,7 +34,10 @@
 </div>
 <div class="container">
   <h1 class="heading text-center">Properties</h1><br>
-  <div class="row">
+  <div class="text-center" *ngIf="properties.length==0">
+    <div class="spinner-grow text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
+  </div>
+  <div class="row" *ngIf="properties.length!=0">
     <div *ngFor="let property of properties" class="col-md-4">
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
