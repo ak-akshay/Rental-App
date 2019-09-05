@@ -7,25 +7,27 @@
   <button *ngIf="enquiries.length!=0 && !deleteMode" class="btn btn-outline-danger" style="float: right;" (click)="deleteMode=true">Delete Enquiriy(s)</button>
   <button *ngIf="enquiries.length!=0 && deleteMode" class="btn btn-outline-secondary" style="float: right;" (click)="deleteMode=false;cancelDelete();">Done</button>
   <button *ngIf="enquiries.length!=0 && deleteMode" class="btn btn-danger" style="float: right;" [disabled]="toDelete.length==0" (click)="confirmDelete()">Confirm Delete</button>
-  <table *ngIf="enquiries.length!=0" class="table table-striped">
-    <thead>
-      <tr>
-        <th *ngIf="deleteMode">Select</th>
-        <th scope="col">For(title)</th>
-        <th scope="col">Message</th>
-        <th scope="col">From(email)</th>
-        <th scope="col">Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let enquiry of enquiries">
-        <td *ngIf="deleteMode"><input type="checkbox" (change)="checkboxChanged($event,enquiry.id)"></td>
-        <td>{{enquiry.title}}</td>
-        <td>{{enquiry.message}}</td>
-        <td>{{enquiry.email}}</td>
-        <td>{{enquiry.timestamp.seconds*1000 | date}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive-sm">
+    <table *ngIf="enquiries.length!=0" class="table table-striped">
+      <thead>
+        <tr>
+          <th *ngIf="deleteMode">Select</th>
+          <th scope="col">For(title)</th>
+          <th scope="col">Message</th>
+          <th scope="col">From(email)</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enquiry of enquiries">
+          <td *ngIf="deleteMode"><input type="checkbox" (change)="checkboxChanged($event,enquiry.id)"></td>
+          <td>{{enquiry.title}}</td>
+          <td>{{enquiry.message}}</td>
+          <td>{{enquiry.email}}</td>
+          <td>{{enquiry.timestamp.seconds*1000 | date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div style="color: darkgreen;">*You'll see an enquiry only after we validate it for you.</div>
 </div>
