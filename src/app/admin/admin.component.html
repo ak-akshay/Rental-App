@@ -50,7 +50,6 @@
         <th scope="col">Mobile</th>
         <th scope="col">Email</th>
         <th scope="col">Sign Up Time</th>
-        <th scope="col">Status(Active)</th>
       </tr>
     </thead>
     <tbody>
@@ -60,7 +59,6 @@
         <td>{{user.mobile}}</td>
         <td>{{user.email}}</td>
         <td>{{user.createdOn.seconds * 1000 | date:'medium'}}</td>
-        <td>{{user.status}}</td>
       </tr>
     </tbody>
   </table>

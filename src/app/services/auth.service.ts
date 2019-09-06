@@ -38,12 +38,11 @@ export class AuthService {
     let name = userD.value.name
     let mobile = userD.value.mobile
     let createdOn = new Date()
-    let status:boolean = true 
     this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data=>{
       console.log(data)
       this.userid=data.user.uid
 
-      this.addUser({email,name,mobile,createdOn,status})
+      this.addUser({email,name,mobile,createdOn})
       this.router.navigateByUrl('/auth/signin')
     }).catch(err=>{
       document.getElementById('alert').style.display="block"
