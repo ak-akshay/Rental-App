@@ -33,9 +33,12 @@ export class RentalsComponent implements OnInit {
   }
 
   search(searchkey:String){
-    console.log(searchkey)
-    this.rentalService.getByCity(searchkey).subscribe(data=>{
-      this.properties=data
-    })
+    if(searchkey!=""){
+      this.rentalService.getByCity(searchkey).subscribe(data=>{
+        this.properties=data
+      })
+    }
+    if(searchkey=="")
+      this.getAllProperties()
   }
 }
