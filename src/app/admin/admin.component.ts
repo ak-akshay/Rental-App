@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { RentalService } from '../services/rental.service';
 import { EnquiryService } from '../services/enquiry.service';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -14,7 +15,9 @@ export class AdminComponent implements OnInit {
   rentals=[]
   enquiries=[]
   show="none";
-  constructor(private AuthService:AuthService, private RentalService: RentalService, private EnquiryService: EnquiryService) {}
+  deleteMode:boolean=false
+  toDelete=[]
+  constructor(private AuthService:AuthService, private RentalService: RentalService, private EnquiryService: EnquiryService, private AdminService: AdminService) {}
 
   ngOnInit() {
   }
@@ -23,7 +26,6 @@ export class AdminComponent implements OnInit {
     this.show="users";
     this.AuthService.getUsers().subscribe(res=>{
       this.users = res
-      console.log(this.users)
     })
   }
 
@@ -31,7 +33,6 @@ export class AdminComponent implements OnInit {
     this.show="rentals";
     this.RentalService.getAllRentals().subscribe(res=>{
       this.rentals = res
-      console.log(this.rentals)
     })
   }
 
@@ -39,7 +40,33 @@ export class AdminComponent implements OnInit {
     this.show="enquiries";
     this.EnquiryService.getAllEnquiries().subscribe(res=>{
       this.enquiries = res
-      console.log(this.enquiries)
     })
+  }
+
+  toggle(enquiry){
+    this.EnquiryService.toggleValid(enquiry.id,enquiry.valid)
+  }
+
+  checkboxChanged(event,value){
+    if(event.target.checked){
+     this.toDelete.push(value)
+     console.log(this.toDelete)
+    }
+    if(!event.target.checked){
+      let index = this.toDelete.indexOf(value);
+      if(index > -1)
+        this.toDelete.splice(index,1)
+      console.log(this.toDelete)
+    }
+  }
+
+  confirmDelete(table){
+    let index= this.toDelete.length - 1
+    while(index > -1)
+    {
+      this.AdminService.delete(table,this.toDelete[index])
+      index--;
+    }
+    this.toDelete=[]
   }
 }

@@ -12,6 +12,9 @@
         <p class="user" *ngIf="userName">Welcome {{userName}}</p>
       </li>
       &nbsp;
+      <li class="nav-item" *ngIf="signedin && userName=='Administrator'">
+        <a routerLink="/admin" class="nav-link">Admin Console</a>
+      </li>
       <li class="nav-item"  *ngIf="signedin">
         <a routerLink="/home" class="nav-link" (click)="navtoggler.click()">Home</a>
       </li>

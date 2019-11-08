@@ -69,6 +69,15 @@ export class AuthService {
       return false;
   }
 
+  isAdmin(){
+    if(this.isAuthenticated){
+      if(this.userDetails.email=="admin@rentalapp.com")
+        return true;
+    }
+    else 
+      return false;
+  }
+
   getUserInfo(){
     //return this.userDetails.user
     return this.db.collection('users').doc(this.userid).get()

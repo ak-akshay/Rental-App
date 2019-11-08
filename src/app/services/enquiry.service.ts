@@ -41,4 +41,8 @@ export class EnquiryService {
       console.log(err)
     })
   }
+
+  toggleValid(id,value){
+    this.db.collection('enquiries').doc(id).update({valid:!value})
+  }
 }

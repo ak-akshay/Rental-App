@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   signedin:boolean=false
-  userName:String=null
+  userName
   gradient:boolean = false
   home:boolean=true
 
